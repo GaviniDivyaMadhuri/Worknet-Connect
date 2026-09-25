@@ -1,12 +1,12 @@
 # WorkNet Connect — Local Worker Hiring & Service Marketplace Platform
 
-A full-stack mobile application that connects users with nearby skilled workers and service providers such as electricians, plumbers, carpenters, painters, cleaners, and other daily wage professionals.
+A full-stack web application that connects users with nearby skilled workers and service providers such as electricians, plumbers, carpenters, painters, cleaners, and other daily wage professionals.
 
 ---
 
 ## 📌 Project Overview
 
-WorkNet Connect is a Flutter-based mobile application developed to simplify the process of finding local workers and service providers. Users can search for workers, view profiles, and connect directly for required services. Workers can register, manage profiles, and upload service posts to reach more customers.
+WorkNet Connect is a React (Vite) web application developed to simplify the process of finding local workers and service providers. Users can search for workers, view profiles, and connect directly for required services. Workers can register, manage profiles, and upload service posts to reach more customers.
 
 The application provides a simple and user-friendly platform for improving communication between customers and workers.
 
@@ -14,13 +14,15 @@ The application provides a simple and user-friendly platform for improving commu
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|------|
-| Flutter (Dart) | Frontend Mobile App |
-| Node.js | Backend Runtime |
-| Express.js | API Development |
-| MongoDB | Database |
-| REST API | Frontend-Backend Communication |
+| Technology       | Usage                          |
+| ----------------- | ------------------------------- |
+| React (Vite)      | Frontend Web App                |
+| React Router      | Client-side Routing              |
+| Axios             | API Requests                     |
+| Node.js           | Backend Runtime                  |
+| Express.js        | API Development                  |
+| MongoDB           | Database                         |
+| REST API          | Frontend-Backend Communication   |
 
 ---
 
@@ -30,37 +32,47 @@ The application provides a simple and user-friendly platform for improving commu
 - Worker Profile Management
 - Search and Find Workers
 - Upload Service Posts
-- Responsive Mobile UI
+- Responsive Web UI
 - REST API Integration
 - Secure Authentication
 - Easy Navigation Interface
 
 ---
 
-## 📱 Application Screens
+## 📱 Application Pages
 
-- Login Screen
-- Registration Screen
-- Home Dashboard
-- Worker Search Screen
-- Profile Screen
-- Upload Post Screen
+- Home
+- Login
+- Registration
+- Find Workers
+- Profile
+- Upload Post
 
 ---
 
 ## 📂 Project Structure
 
-```bash
+```
 worknet-connect/
 │
-├── api_service.dart
-├── find_worker_screen.dart
-├── login_screen.dart
-├── main.dart
-├── main_page.dart
-├── profile_screen.dart
-├── register_screen.dart
-├── upload_post_screen.dart
+├── src/
+│   ├── api/
+│   │   └── apiService.js       # Mirrors the original API service layer
+│   ├── components/
+│   │   └── NavBar.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── FindWorkers.jsx
+│   │   ├── Profile.jsx
+│   │   └── UploadPost.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.js
 ├── server.js
 └── README.md
 ```
@@ -105,38 +117,49 @@ worknet-connect/
 
 ### Prerequisites
 
-- Flutter SDK
 - Node.js
 - MongoDB
-- Android Studio / VS Code
-
----
+- A code editor (VS Code recommended)
 
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/worknet-connect.git
-cd worknet-connect
+git clone https://github.com/GaviniDivyaMadhuri/Worknet-Connect.git
+cd Worknet-Connect
 ```
 
-### Install Flutter Dependencies
+### Install Frontend Dependencies
 
 ```bash
-flutter pub get
+npm install
 ```
 
-### Run Flutter App
+### Run the Frontend (Dev Server)
 
 ```bash
-flutter run
+npm run dev
 ```
+
+The app runs at `http://localhost:5173`. In development, API requests to `/api/...` are proxied to `http://localhost:5000` (see `vite.config.js`), so no separate base URL configuration is needed.
 
 ### Start Backend Server
+
+In a separate terminal:
 
 ```bash
 npm install
 node server.js
 ```
+
+The backend runs at `http://localhost:5000`.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+This outputs static files to `dist/`, which can be served directly from Express (or any static host) alongside the API.
 
 ---
 
@@ -153,7 +176,5 @@ node server.js
 
 ## 👨‍💻 Developed By
 
-Gavini Divya Madhuri  
+Gavini Divya Madhuri
 B.Tech — Computer Science and Engineering
-
-```
